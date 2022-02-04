@@ -1,5 +1,8 @@
 package com.legionmodding.usefulutilities;
 
+import com.legionmodding.usefulutilities.handler.registry.BlockRegistry;
+import com.legionmodding.usefulutilities.handler.registry.ItemRegistry;
+
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -12,6 +15,9 @@ public class UsefulUtilities
 
     public UsefulUtilities()
     {
+        BlockRegistry.registerBlocks();
+        ItemRegistry.registerItems();
+
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onClientSetup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onCommonSetup);
 
